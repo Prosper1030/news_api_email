@@ -13,7 +13,8 @@ url = "https://newsapi.org/v2/everything?" \
 request = requests.get(url)
 content = request.json()
 
-print(content)
+# print(content)
+subject = "Today's news"
 body = ""
 
 for article in content["articles"][:20]:
@@ -23,4 +24,4 @@ for article in content["articles"][:20]:
     if title and description:  # 確保都不是 None 或空字符串
         body += f"{title}\n{description}\n{url}\n\n"
 
-send_email(subject="Today's news", message=body)
+send_email(subject=subject, message=body)
